@@ -9,6 +9,18 @@
 #include "Adafruit_MCP23017.h"
 #endif
 
+// Basic pin reading and pullup test for the MCP23017 I/O expander
+// public domain!
+
+// Connect pin #12 of the expander to Analog 5 for Arduino and D1 for Spark Core (i2c clock) 
+// Connect pin #13 of the expander to Analog 4 for Arduino and D0 for Spark Core (i2c data)
+// Connect pins #15, 16 and 17 of the expander to ground (address selection)
+// Connect pin #9 of the expander to 5V (power)
+// Connect pin #10 of the expander to ground (common ground)
+// Connect pin #18 through a ~10kohm resistor to 5V (reset pin, active low)
+
+// Output #0 is on pin 21 so connect an LED or whatever from that to ground
+
 Adafruit_MCP23017 mcp;
 
 #if defined (SPARK)
