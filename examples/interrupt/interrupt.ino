@@ -2,8 +2,8 @@
 // See loop() function comments for details on usage.
 //#include <LowPower.h>
 
-#if defined (SPARK)
-#include "Adafruit_MCP23017/Adafruit_MCP23017.h"
+#if defined (PARTICLE)
+#include "Adafruit_MCP23017.h"
 #else
 #include <Wire.h>
 #include "Adafruit_MCP23017.h"
@@ -23,14 +23,14 @@
 
 Adafruit_MCP23017 mcp;
 
-#if defined (SPARK)
+#if defined (PARTICLE)
 byte ledPin=D7;
 #else
 byte ledPin=13;
 #endif
 
 // Interrupts from the MCP will be handled by this PIN
-#if defined (SPARK)
+#if defined (PARTICLE)
 byte arduinoIntPin=D2;
 
 // ... and this interrupt vector

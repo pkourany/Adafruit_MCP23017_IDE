@@ -14,8 +14,8 @@
 #ifndef _Adafruit_MCP23017_H_
 #define _Adafruit_MCP23017_H_
 
-#if defined (SPARK)
-#include "application.h"
+#if defined (PARTICLE)
+#include "Particle.h"
 
 #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
 #define bitSet(value, bit) ((value) |= (1UL << (bit)))

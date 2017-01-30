@@ -13,4 +13,5 @@ BSD license, check license.txt for more information
 All text above must be included in any redistribution
 
 Adapted for Spark Core by Paul Kourany, Sept 3, 2014
+Update to Libraries 2.0, Jan 29, 2017
 

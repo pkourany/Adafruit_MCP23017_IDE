@@ -13,7 +13,7 @@
  Adapted for Spark Core by Paul Kourany, Sept 3, 2014
  ****************************************************/
 
-#if defined (SPARK)
+#if defined (PARTICLE)
 #include "Adafruit_MCP23017.h"
 #else
 #include <Wire.h>
@@ -27,11 +27,11 @@
 #else
 #include "WProgram.h"
 #endif
-#endif //Spark
+#endif //Particle
 
 // minihelper to keep Arduino backward compatibility
 static inline void wiresend(uint8_t x) {
-#if (ARDUINO >= 100) || defined (SPARK)
+#if (ARDUINO >= 100) || defined (PARTICLE)
 	Wire.write((uint8_t) x);
 #else
 	Wire.send(x);
@@ -39,7 +39,7 @@ static inline void wiresend(uint8_t x) {
 }
 
 static inline uint8_t wirerecv(void) {
-#if (ARDUINO >= 100) || defined (SPARK)
+#if (ARDUINO >= 100) || defined (PARTICLE)
 	return Wire.read();
 #else
 	return Wire.receive();

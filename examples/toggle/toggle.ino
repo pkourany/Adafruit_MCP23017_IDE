@@ -1,5 +1,5 @@
-#if defined (SPARK)
-#include "Adafruit_MCP23017/Adafruit_MCP23017.h"
+#if defined (PARTICLE)
+#include "Adafruit_MCP23017.h"
 #else
 #include <Wire.h>
 #include "Adafruit_MCP23017.h"
@@ -15,22 +15,25 @@
 // Connect pin #10 of the expander to ground (common ground)
 // Connect pin #18 through a ~10kohm resistor to 5V (reset pin, active low)
 
-// Input #0 is on pin 21 so connect a button or switch from there to ground
+// Output #0 is on pin 21 so connect an LED or whatever from that to ground
 
 Adafruit_MCP23017 mcp;
   
 void setup() {  
   mcp.begin();      // use default address 0
 
-  mcp.pinMode(0, INPUT);
-  mcp.pullUp(0, HIGH);  // turn on a 100K pullup internally
-
-  pinMode(13, OUTPUT);  // use the p13 LED as debugging
+  mcp.pinMode(0, OUTPUT);
 }
 
 
+// flip the pin #0 up and down
 
 void loop() {
-  // The LED will 'echo' the button
-  digitalWrite(13, mcp.digitalRead(0));
+  delay(100);
+
+  mcp.digitalWrite(0, HIGH);
+
+  delay(100);
+
+  mcp.digitalWrite(0, LOW);
 }
